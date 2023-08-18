@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow -->
+<html lang="en" dir="ltr" class="g-offcanvas-css3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                                <meta name="google-site-verification" content="o-4u0ZCHXto-m-bqThbc9jCWGtt4INrGHodn1iD_WRM">
+                                    
+
+                <link rel="icon" type="image/x-icon" href="https://cyberlab.pacific.edu/user/images/g5_helium/favicon.ico">
+        
+                
+    <title>Lab 12 - OpenFlow | Pacific Cybersecurity</title>
+    <meta name="generator" content="GravCMS">
+<meta name="author" content="University of the Pacific">
+    <link rel="canonical" href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow">
+    
+        
+            <link href="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/2b2e6c048336a175145cc9cba731c5a6.css" type="text/css" rel="stylesheet">
+<style>
+tr, td {
+   border: 1px solid;
+   border-color: inherit
+}
+</style>
+
+        <script type="text/javascript" async="" src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/analytics.js.descarga"></script><script type="text/javascript" async="" src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/js"></script><script src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/jquery-2.x.min.js.descarga"></script>
+<script src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/js(1)" async=""></script>
+<script src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/lightslider.min.js.descarga"></script>
+<script src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/highlight.pack.js.descarga"></script>
+<script src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/featherlight.min.js.descarga"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68687219-2');
+</script>
+<script>
+hljs.initHighlightingOnLoad();
+</script>
+<script>
+$(document).ready(function(){
+    $('a[rel="lightbox"]').featherlight({
+        openSpeed: 250,
+        closeSpeed: 250,
+        closeOnClick: 'background',
+        closeOnEsc: '1',
+        root: 'body'
+    });
+});
+</script>
+
+    
+
+                
+<style type="text/css" id="operaUserStyle"></style><style type="text/css">:root zeus-ad, :root topadblock, :root span[id^="ezoic-pub-ad-placeholder-"], :root guj-ad, :root gpt-ad, :root div[id^="zergnet-widget"], :root div[id^="yandex_ad"], :root div[id^="vuukle-ad-"], :root div[id^="sticky_ad_"], :root div[id^="rc-widget-"], :root div[id^="optidigital-adslot"], :root div[id^="gpt_ad_"], :root div[id^="ezoic-pub-ad-"], :root div[id^="div-gpt-"], :root div[id^="dfp-ad-"], :root div[id^="advads_ad_"], :root div[id^="adspot-"], :root div[id^="ads300_250-widget-"], :root div[id^="ads300_100-widget-"], :root div[id^="ads250_250-widget-"], :root div[id^="adrotate_widgets-"], :root div[id^="_vdo_ads_player_ai_"], :root div[id*="ScriptRoot"], :root div[id*="MarketGid"], :root div[data-native_ad], :root div[data-mini-ad-unit], :root div[data-insertion], :root div[data-id-advertdfpconf], :root div[data-google-query-id], :root hl-adsense, :root div[data-contentexchange-widget], :root div[data-content="Advertisement"], :root div[data-alias="300x250 Ad 2"], :root div[data-alias="300x250 Ad 1"], :root div[data-adzone], :root div[data-adunit-path], :root div[data-ad-wrapper], :root div[data-ad-targeting], :root div[data-ad-placeholder], :root div[class^="native-ad-"], :root div[data-dfp-id], :root div[class^="kiwi-ad-wrapper"], :root div[class^="Adstyled__AdWrapper-"], :root div[aria-label="Ads"], :root display-ads, :root display-ad-component, :root bottomadblock, :root atf-ad-slot, :root aside[id^="adrotate_widgets-"], :root article.ad, :root ark-top-ad, :root app-advertisement, :root app-ad, :root amp-fx-flying-carpet, :root amp-embed[type="taboola"], :root amp-connatix-player, :root amp-ad-custom, :root amp-ad, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root citrus-ad-wrapper, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="https://yogacomplyfuel.com/"], :root a[href^="https://www.sugarinstant.com/?partner_id="], :root a[href^="https://www.purevpn.com/"][href*="&utm_source=aff-"], :root a[href^="https://www.privateinternetaccess.com/"] > img, :root a[href^="https://www.onlineusershielder.com/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root a[href^="https://www.nudeidols.com/cams/"], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href^="https://www.kingsoffetish.com/tour?partner_id="], :root a[href^="https://www.infowarsstore.com/"] > img, :root a[href^="https://www.highcpmrevenuenetwork.com/"], :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="https://www.financeads.net/tc.php?"], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root div[class^="Display_displayAd"], :root a[href^="https://www.sheetmusicplus.com/?aff_id="], :root a[href^="https://www.bang.com/?aff="], :root [data-template-type="nativead"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root a[href^="https://webroutetrk.com/"], :root a[href^="https://twinrdsyn.com/"], :root a[href^="https://tsartech.g2afse.com/"], :root [href^="https://www.mypatriotsupply.com/"] > img, :root a[href^="https://trk.softonixs.xyz/"], :root a[href^="https://trk.nfl-online-streams.club/"], :root a[href^="https://tracking.avapartner.com/"], :root a[href^="https://track.wg-aff.com"], :root a[href^="https://track.afcpatrk.com/"], :root a[href^="https://torguard.net/aff.php"] > img, :root div[data-adname], :root a[href^="https://thechleads.pro/"], :root [data-role="tile-ads-module"], :root a[href^="https://adsrv4k.com/"], :root a[href^="https://go.xlviirdr.com"], :root a[href^="https://thaudray.com/"], :root a[href^="https://www.5mno3.com/"], :root a[href^="https://taghaugh.com/"], :root a[href^="https://click.candyoffers.com/"], :root [href^="https://zstacklife.com/"] img, :root a[href^="https://t.aslnk.link/"], :root a[href^="https://t.adating.link/"], :root a[href^="https://go.trackitalltheway.com/"], :root [href^="https://track.fiverr.com/visit/"] > img, :root a[href^="https://syndication.exoclick.com/"], :root a[href^="https://syndication.dynsrvtbg.com/"], :root a[href^="https://streamate.com/landing/click/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="https://static.fleshlight.com/images/banners/"], :root a[href^="https://sTaRtGAMing.net/tienda/"], :root [data-adblockkey], :root a[href^="https://sTARtgamIng.net/tienda/"], :root a[href^="https://aweptjmp.com/"], :root a[href^="https://s.zlinkc.com/"], :root a[href^="https://www.mrskin.com/account/"], :root a[href^="https://s.optzsrv.com/"], :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root a[href^="https://reinstandpointdumbest.com/"], :root a[href^="https://go.strpjmp.com/"], :root a[href^="https://refpa4903566.top/"], :root a[href^="https://pubads.g.doubleclick.net/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"] > img, :root a[href^="https://serve.awmdelivery.com/"], :root a[href^="https://prf.hn/click/"][href*="/adref:"] > img, :root a[href^="https://pb-track.com/"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root ps-connatix-module, :root div[id^="ad_position_"], :root a[href^="https://ovb.im/"], :root div[id^="ad-div-"], :root a[href^="https://newbinotracs.com/"], :root a[href^="https://natour.naughtyamerica.com/track/"], :root [href^="https://stvkr.com/"], :root a[href^="https://mediaserver.entainpartners.com/renderBanner.do?"], :root [href^="https://www.herbanomic.com/"] > img, :root a[href^="https://maymooth-stopic.com/"], :root a[href^="https://loboclick.com"], :root .nya-slot[style], :root a[href^="https://a.bestcontentweb.top/"], :root a[href^="https://lobimax.com/"], :root a[href^="https://lead1.pl/"], :root a[href^="https://refpa.top/"], :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="https://safesurfingtoday.com/"][href*="?skip="], :root a[href^="https://ads.leovegas.com/redirect.aspx?"], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://track.adform.net/"], :root [data-css-class="dfp-inarticle"], :root .card-captioned.crd > .crd--cnt > .s2nPlayer, :root a[href^="https://go.tmrjmp.com"], :root a[href^="https://l.hyenadata.com/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://mediaserver.gvcaffiliates.com/renderBanner.do?"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://itubego.com/video-downloader/?affid="], :root a[href^="https://iqbroker.com/"][href*="?aff="], :root a[href^="https://incisivetrk.cvtr.io/click?"], :root [data-revive-zoneid], :root a[href^="https://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://clk.wrenchsound.store/"], :root a[href^="https://go.zybrdr.com"], :root [href^="http://join.michelle-austin.com/"], :root [class^="tile-picker__CitrusBannerContainer-sc-"], :root a[href^="https://go.xxxiijmp.com"], :root a[href^="https://go.xtbaffiliates.com/"], :root a[href^="https://ismlks.com/"], :root a[href^="//a.bestcontentfare.top/"], :root [href^="https://www.mypillow.com/"] > img, :root a[href^="https://azpresearch.club/"], :root a[href^="https://go.xlirdr.com"], :root a[href^="https://go.skinstrip.net"][href*="?campaignId="], :root a[href^="https://go.markets.com/visit/?bta="], :root a[href^="https://billing.purevpn.com/aff.php"] > img, :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://go.goaserv.com/"], :root a[href^="https://go.dmzjmp.com"], :root a[href^="https://twinrdsrv.com/"], :root a[href^="https://go.admjmp.com/"], :root [href^="https://kingered-banctours.com/"], :root a[href^="https://get.surfshark.net/aff_c?"][href*="&aff_id="] > img, :root a-ad, :root a[href^="https://affiliate.rusvpn.com/click.php?"], :root a[href^="https://geniusdexchange.com/"], :root a[href^="https://frameworkdeserve.com/"], :root a[href^="https://flirtandsweets.life/"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="https://financeads.net/tc.php?"], :root div[data-native-ad], :root a[href^="https://engine.trackingdesks.com/"], :root [href^="https://totlnkcl.com/"], :root a[href^="https://www.adskeeper.com"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root [href^="https://www.reimageplus.com/"], :root a[href^="https://engine.phn.doublepimp.com/"], :root a[href^="https://engine.blueistheneworanges.com/"], :root a[href^="https://dl-protect.net/"], :root [href="//jjgirls.com/sex/ChaturbateCams"], :root a[href^="https://datingoffers30.info/"], :root a[href^="https://clixtrac.com/"], :root a[href^="https://click.linksynergy.com/fs-bin/"] > img, :root ad-shield-ads, :root a[href^="https://sTartGAMinG.net/tienda/"], :root AD-TRIPLE-BOX, :root a[href^="https://click.hoolig.app/"], :root a[href^="https://track.totalav.com/"], :root img[src^="https://images.purevpnaffiliates.com"], :root a[href^="https://porntubemate.com/"], :root a[href^="http://www.gfrevenge.com/landing/"], :root a[href^="https://clickadilla.com/"], :root a[href^="https://click.dtiserv2.com/"], :root a[href^="https://go.xlvirdr.com"], :root a[href^="http://www.iyalc.com/"], :root a[href^="https://claring-loccelkin.com/"], :root [class^="s2nPlayer"], :root a[href^="https://chaturbate.jjgirls.com/?track="], :root a[href^="https://chaturbate.com/in/?track="], :root a[href^="https://chaturbate.com/in/?tour="], :root a[href^="https://cams.imagetwist.com/in/?track="], :root a[href^="https://go.gldrdr.com/"], :root a[href^="https://buqkrzbrucz.com/"], :root a[href^="https://affcpatrk.com/"], :root a[href^="https://bongacams2.com/track?"], :root a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], :root a[href^="https://bngpt.com/"], :root a[href^="https://bluedelivery.pro/"], :root a[href^="https://black77854.com/"], :root a[href^="https://bc.game/"], :root a[href^="https://ndt5.net/"], :root a[href^="https://batheunits.com/"], :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[href^="https://banners.livepartners.com/"], :root a[href^="//whulsaux.com/"], :root a[href^="https://m.do.co/c/"] > img, :root [href="https://masstortfinancing.com"] img, :root a[href^="https://bongacams10.com/track?"], :root a[href^="https://albionsoftwares.com/"], :root a[href^="https://t.hrtye.com/"], :root a[href^="https://go.etoro.com/"] > img, :root a[href^="https://www.adxsrve.com/"], :root a[href^="https://convertmb.com/"], :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://intenseaffiliates.com/redirect/"], :root a[href^="https://ads.ad4game.com/"], :root [id^="google_ads_iframe"], :root a[href^="https://syndication.optimizesrv.com/"], :root a[href^="https://affpa.top/"], :root a[href^="https://adnetwrk.com/"], :root a[href^="https://adjoincomprise.com/"], :root [href^="http://misslinkvocation.com/"], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href^="https://www.bet365.com/"][href*="affiliate="], :root [href^="https://r.kraken.com/"], :root a[href^="https://mmwebhandler.aff-online.com/"], :root a[href^="https://go.nordvpn.net/aff"] > img, :root [href^="http://clicks.totemcash.com/"], :root a[href^="https://misspkl.com/"], :root a[href^="https://ad.zanox.com/ppc/"] > img, :root a[href^="https://ad.kubiccomps.icu/"], :root a[href^="https://a2.adform.net/"], :root a[href^="https://iactrivago.ampxdirect.com/"], :root a[href^="https://a.medfoodhome.com/"], :root a[href^="https://adultfriendfinder.com/go/"], :root a[href^="https://a.bestcontentoperation.top/"], :root [data-m-ad-id], :root a[href^="https://a-ads.com/"], :root a[href^="https://join.virtualtaboo.com/track/"], :root a[href^="https://StarTGAminG.net/tienda/"], :root a[href^="https://cpmspace.com/"], :root [href^="https://freecourseweb.com/"] > .sitefriend, :root a[href^="https://prf.hn/click/"][href*="/creativeref:"] > img, :root a[href^="http://www.adultempire.com/unlimited/promo?"][href*="&partner_id="], :root a[href^="https://1betandgonow.com/"], :root [href="https://ourgoldguy.com/contact/"] img, :root a[href^="https://brightadnetwork.com/"], :root [href^="https://www.avantlink.com/click.php"] img, :root a[href^="http://www.onwebcam.com/random?t_link="], :root a[href^="http://www.mrskin.com/tour"], :root a[href^="https://agacelebir.com/"], :root a[href^="https://spygasm.com/track?"], :root a[href^="http://d2.zedo.com/"], :root a[href^="http://www.friendlyduck.com/AF_"], :root a[href^="http://trk.globwo.online/"], :root a[href^="http://traffic.tc-clicks.com/"], :root a[href^="http://tour.mrskin.com/"], :root a[href^="https://funkydaters.com/"], :root [id^="ad_sky"], :root a[href^="http://https://www.get-express-vpn.com/offer/"], :root div[id^="google_dfp_"], :root a[href^="http://googleads.g.doubleclick.net/pcs/click"], :root [href^="http://go.cm-trk2.com/"], :root a[href^="http://click.payserve.com/"], :root a[href^="https://porngames.adult/?SID="], :root a[href^="https://landing1.brazzersnetwork.com"], :root #slashboxes > .deals-rail, :root [href^="http://globsads.com/"], :root [href^="https://www.brighteonstore.com/products/"] img, :root a[href^="http://bc.vc/?r="], :root a[href^="https://mityneedn.com/"], :root [href^="http://homemoviestube.com/"], :root a[href^="http://ad.doubleclick.net/"], :root a[href^="//zunsoach.com/"], :root a[href^="http://static.fleshlight.com/images/banners/"], :root a[href^="https://a.adtng.com/"], :root a[href^="//pubads.g.doubleclick.net/"], :root a[href^="https://femglobal.app/"], :root a[href^="//go.eabids.com/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root [href^="https://join.playboyplus.com/track/"], :root a[href^="//ardslediana.com/"], :root [data-d-ad-id], :root a[href*=".engine.adglare.net/"], :root [href^="https://awbbjmp.com/"], :root a[href^="https://tracker.loropartners.com/"], :root #kt_player > a[target="_blank"], :root a[href*=".cfm?fp="][href*="&maxads="], :root [data-ad-width], :root a[href^="http://bodelen.com/"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root [href^="https://cpa.10kfreesilver.com/"], :root a[href^="https://a.bestcontentfood.top/"], :root a[href^="http://wct.link/"], :root [href^="https://goldforyourfuture.com/clk.trk"] img, :root [href^="https://infinitytrk.com/"], :root [onclick^="location.href='http://www.reimageplus.com"], :root [id^="section-ad-banner"], :root a[href^="https://go.julrdr.com/"], :root .trc_rbox_div .syndicatedItemUB, :root [href^="https://zone.gotrackier.com/"], :root a[href^="https://visit-website.com/"], :root [href^="https://detachedbates.com/"], :root [href^="https://www.targetingpartner.com/"], :root a[href^="https://fourwhenstatistics.com/"], :root [href^="https://www.restoro.com/"], :root a[href^="https://join.virtuallust3d.com/"], :root .section-subheader > .section-hotel-prices-header, :root [href^="https://go.affiliatexe.com/"], :root [href^="https://www.hostg.xyz/"] > img, :root [href^="https://ilovemyfreedoms.com/landing-"], :root a[href^="https://staRTgaming.net/tienda/"], :root a[href^="https://STaRtgAmInG.net/tienda/"], :root a[href^="http://adultfriendfinder.com/go/"], :root a[href^="https://fastestvpn.com/lifetime-special-deal?a_aid="], :root a[href^="https://tour.mrskin.com/"], :root div[id^="ad-position-"], :root a[href^="http://affiliate.glbtracker.com/"], :root a[href^="https://leg.xyz/?track="], :root div[id^="crt-"][style], :root a[href^="http://adultgames.xxx/"], :root [href^="https://shiftnetwork.infusionsoft.com/go/"] > img, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root [href^="https://secure.bmtmicro.com/servlets/"], :root a[href^="https://losingoldfry.com/"], :root .scroll-fixable.rail-right > .deals-rail, :root [href^="https://routewebtk.com/"], :root a[href^="https://oackoubs.com/"], :root a[href^="https://ak.psaltauw.net/"], :root a[href^="https://go.cmtaffiliates.com/"], :root [data-name="adaptiveConstructorAd"], :root [href^="https://optimizedelite.com/"] > img, :root a[href^="https://awptjmp.com/"], :root a[href^="https://go.goasrv.com/"], :root [href^="http://mypillow.com/"] > img, :root a[href^="http://bongacams.com/track?"], :root a[href^="https://fleshlight.sjv.io/"], :root [data-ad-manager-id], :root a[href^="https://promo-bc.com/"], :root a[href^="https://clicks.pipaffiliates.com/"], :root [href^="https://noqreport.com/"] > img, :root a[href^="https://www.highperformancecpmgate.com/"], :root a[href^="https://t.grtyi.com/"], :root [href^="https://mylead.global/stl/"] > img, :root [href^="https://mypatriotsupply.com/"] > img, :root [data-freestar-ad], :root a[href^="https://fc.lc/ref/"], :root .vid-present > .van_vid_carousel__padding, :root span[data-ez-ph-id], :root [href^="https://track.aftrk1.com/"], :root div[id^="adngin-"], :root [data-rc-widget], :root a[href^="https://go.xxxijmp.com"], :root [href^="https://istlnkcl.com/"], :root [href^="https://go.xlrdr.com"], :root [href^="https://go.4rabettraff.com/"], :root a[href^="https://tm-offers.gamingadult.com/"], :root [href^="https://charmingdatings.life/"], :root [href^="https://glersakr.com/"], :root ins.adsbygoogle, :root a[href^="https://1startfiledownload1.com/"], :root .trc_rbox_border_elm .syndicatedItem, :root a[href^="http://www.onclickmega.com/jump/next.php?"], :root a[href^="https://italarizege.xyz/"], :root a[href^="https://wittered-mainging.com/"], :root [href^="https://engine.gettopple.com/"], :root [data-id^="div-gpt-ad"], :root a[href^="https://k2s.cc/pr/"], :root [href^="https://affect3dnetwork.com/track/"], :root a[href^="https://camfapr.com/landing/click/"], :root [href="//sexcams.plus/"], :root a[href^="https://go.currency.com/"], :root [href^="http://www.mypillow.com/"] > img, :root div[id^="div-ads-"], :root [href^="https://rapidgator.net/article/premium/ref/"], :root [href^="https://join3.bannedsextapes.com"], :root div[data-spotim-slot], :root [href^="https://antiagingbed.com/discount/"] > img, :root a[href^="https://go.247traffic.com/"], :root [href^="https://join.girlsoutwest.com/"], :root [href^="http://trafficare.net/"], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="https://adserver.adreactor.com/"], :root [href^="http://join.shemalesfromhell.com/"], :root [id^="ad_slider"], :root #searchResultsList > div > div[onclick$="'inline.ad'});"], :root [data-adbridg-ad-class], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root [href^="http://join.shemale.xxx/"], :root a[href^="https://ads.betfair.com/redirect.aspx?"], :root [href^="http://www.fleshlightgirls.com/"], :root [href^="http://join.trannies-fuck.com/"], :root .trc_rbox .syndicatedItem, :root a[href^="http://cam4com.go2cloud.org/aff_c?"], :root a[href^="https://thefacux.com/"], :root a[href^="https://ads.planetwin365affiliate.com/redirect.aspx?"], :root [href^="http://join.rodneymoore.com/"], :root [href^="https://shrugartisticelder.com"], :root a[href^="https://staRTgamIng.net/tienda/"], :root div[id^="lazyad-"], :root a[href^="http://com-1.pro/"], :root [name^="google_ads_iframe"], :root [href="https://www.masstortfinancing.com/"] > img, :root .ob_container .item-container-obpd, :root [id^="div-gpt-ad"], :root [href^="https://mypillow.com/"] > img, :root [href^="https://ad.admitad.com/"], :root [data-testid="ad_testID"], :root a[href^="https://u.expresstech.io/"], :root a[href^="https://www.geekbuying.com/dynamic-ads/"], :root a[href^="https://lnkxt.bannerator.com/"], :root [href="https://jdrucker.com/gold"] > img, :root [href^="https://v.investologic.co.uk/"], :root [href^="https://mystore.com/"] > img, :root ADS-RIGHT, :root [href^="https://cipledecline.buzz/"], :root a[href^="https://go.xxxjmp.com"], :root #leader-companion > a[href], :root [data-desktop-ad-id], :root [href^="https://wct.link/"], :root div[recirculation-ad-container], :root [href^="https://traffserve.com/"], :root a[href^="https://track.ultravpn.com/"], :root [href^="https://goldcometals.com/clk.trk"], :root a[href^="https://go.hpyjmp.com"], :root [data-mobile-ad-id], :root a[href^="http://tc.tradetracker.net/"] > img, :root a[href^="http://affiliates.thrixxx.com/"], :root [data-ad-name], :root [data-ez-name], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root [data-dynamic-ads], :root a[href^="http://go.xtbaffiliates.com/"], :root a[href^="https://consali.com/"], :root .grid > .container > #aside-promotion, :root DFP-AD, :root .trc_related_container div[data-item-syndicated="true"], :root a[href^="https://www.liquidfire.mobi/"], :root [href^="https://click2cvs.com/"], :root a[href^="https://startgAming.net/tienda/"], :root [href^="https://safer-redirection.com"], :root [onclick*="content.ad/"], :root AMP-AD, :root [data-ad-cls], :root [id^="ad-wrap-"], :root div[id^="taboola-stream-"], :root [href^="https://go.astutelinks.com/"], :root [class^="amp-ad-"], :root [href^="https://affiliate.fastcomet.com/"] > img, :root [class^="adDisplay-module"], :root AD-SLOT, :root a[href^="https://go.xlviiirdr.com"], :root [href^="http://join.shemalepornstar.com/"], :root a[href^="http://partners.etoro.com/"], :root [data-advadstrackid], :root [href^="https://trackfin.asia/"], :root .plistaList > .plista_widget_underArticle_item[data-type="pet"], :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root .trc_rbox_div .syndicatedItem, :root div[data-adunit], :root app-large-ad, :root [href^="https://turtlebids.irauctions.com/"] img, :root [data-ad-module], :root .plistaList > .itemLinkPET, :root [href^="https://gmxvmvptfm.com/"], :root a[href^="https://bs.serving-sys.com"], :root [href^="http://residenceseeingstanding.com/"], :root a[href*="//lkstrck2.com/"], :root a[href^="https://traffdaq.com/"], :root [class^="div-gpt-ad"], :root a[href^="https://refpazkjixes.top/"], :root #mgb-container > #mgb, :root [href^="https://www.cloudways.com/en/?id"], :root a[href^="https://trk.sportsflix4k.club/"], :root a[href^="https://go.xlivrdr.com"], :root a[href^="https://cam4com.go2cloud.org/"], :root a[href^="http://li.blogtrottr.com/click?"] { display: none !important; }</style></head>
+
+    <body class="gantry g-helium-style site default dir-ltr outline-default g-offcanvas-left g-default g-style-preset5">
+        
+                    
+
+        <div id="g-offcanvas" data-g-offcanvas-swipe="1" data-g-offcanvas-css3="1" style="">
+                        <div class="g-grid">                        
+
+        <div class="g-block hidden size-100">
+             <div id="mobile-menu-5697-particle" class="g-content g-particle">            <div id="g-mobilemenu-container" data-g-menu-breakpoint="48rem"></div>
+            </div>
+        </div>
+            </div>
+    </div>
+        <div id="g-page-surround"><div class="g-menu-overlay"></div>
+            <div class="g-offcanvas-hide g-offcanvas-toggle" role="navigation" data-offcanvas-toggle="" aria-controls="g-offcanvas" aria-expanded="false"><i class="fa fa-fw fa-bars"></i></div>                        
+
+                                                        
+                <section id="g-navigation">
+                <div class="g-container">                                                    <div class="g-grid">                        
+
+        <div class="g-block size-25">
+             <div id="logo-9608-particle" class="g-content g-particle">            <a href="http://www.pacific.edu/" target="_self" title="Pacific Cybersecurity" aria-label="Pacific Cybersecurity" class="g-logo g-logo-helium">
+                        <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 381.23749 111.265" height="111.265" width="381.23749" xml:space="preserve" version="1.1" id="svg3393"><metadata id="metadata3399"><rdf:rdf><cc:work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type><dc:title></dc:title></cc:work></rdf:rdf></metadata><defs id="defs3397"><clippath id="clipPath3409" clipPathUnits="userSpaceOnUse"><path id="path3411" d="M 0,0 341,0 341,187 0,187 0,0 Z"></path></clippath></defs><g transform="matrix(1.25,0,0,-1.25,-23.07375,211.02875)" id="g3401"><g style="fill:#ffffff" id="g3403"></g><path id="path3415" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 32.786,166.448 c 0,0.818 -0.264,1.583 -1.32,1.583 l 0,0.475 c 0.818,0 1.61,-0.105 2.402,-0.105 0.897,0 1.688,0.105 2.348,0.105 l 0,-0.475 c -0.897,0 -1.161,-0.765 -1.161,-1.583 l -0.079,-14.3 c 0,-1.108 0.633,-1.583 1.53,-1.583 l 0,-0.475 c -0.66,0 -1.32,0.105 -1.979,0.105 -0.659,0 -1.319,-0.105 -1.979,-0.105 l 0,0.184 c 0.158,0.159 0.264,0.396 0.264,0.713 l 0,1.293 c -1.82,-1.24 -3.826,-2.507 -6.306,-2.507 -3.905,0 -6.596,2.48 -6.596,6.755 l -0.079,9.92 c 0,0.818 -0.37,1.583 -1.372,1.583 l 0,0.475 c 0.844,0 1.636,-0.105 2.454,-0.105 0.897,0 1.688,0.105 2.453,0.105 l 0,-0.475 c -1.002,0 -1.266,-0.765 -1.266,-1.583 l -0.079,-9.815 c 0,-4.169 2.902,-5.488 5.013,-5.488 2.058,0 4.802,0.844 5.831,2.507 l -0.079,12.796"></path><path id="path3417" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 43.894,168.506 0.58,0 c 0.844,-0.897 1.61,-1.9 2.481,-2.797 l 11.318,-11.714 0,8.707 c 0,4.617 -0.316,4.986 -2.031,5.329 l 0,0.475 c 1.029,0 1.794,-0.105 2.559,-0.105 0.765,0 1.53,0.105 2.296,0.105 l 0,-0.475 c -1.425,-0.343 -1.742,-0.712 -1.742,-2.057 l 0,-15.884 -0.58,0 -13.562,14.01 0,-10.053 c 0,-2.77 0.317,-3.139 1.847,-3.482 l 0,-0.475 c -0.871,0 -1.636,0.105 -2.401,0.105 -1.003,0 -1.768,-0.105 -2.428,-0.105 l 0,0.475 c 1.346,0.343 1.663,0.712 1.663,2.058 l 0,15.883"></path><path id="path3419" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 71.835,168.031 c -1.029,0 -1.319,-0.765 -1.319,-1.583 l -0.132,-14.3 c 0,-0.818 0.422,-1.583 1.214,-1.583 l 0,-0.475 c -0.554,0 -1.346,0.105 -2.243,0.105 -0.791,0 -1.583,-0.105 -2.111,-0.105 l 0,0.475 c 0.739,0 1.161,0.765 1.161,1.583 l -0.132,14.3 c 0,0.818 -0.29,1.583 -1.319,1.583 l 0,0.475 c 0.818,0 1.61,-0.105 2.401,-0.105 0.897,0 1.689,0.105 2.48,0.105 l 0,-0.475"></path><path id="path3421" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 84.394,149.773 -6.807,17.019 c -0.422,1.055 -0.581,1.134 -1.319,1.239 l 0,0.475 c 0.817,0 1.635,-0.105 2.453,-0.105 0.819,0 1.636,0.105 2.454,0.105 l 0,-0.475 c -0.263,-0.053 -0.976,-0.211 -0.976,-0.474 0,-0.159 0.079,-0.449 0.29,-1.056 l 4.723,-13.377 4.802,12.005 c 0.29,0.766 0.343,1.583 0.343,1.742 0,0.817 -0.237,1.028 -1.134,1.16 l 0,0.475 c 0.765,0 1.53,-0.105 2.295,-0.105 0.765,0 1.53,0.105 2.322,0.105 l 0,-0.475 c -0.923,-0.105 -1.214,-0.474 -1.636,-1.477 l -7.098,-16.781 -0.712,0"></path><path id="path3423" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 109.618,165.63 -0.475,0 c -0.264,1.188 -1.24,1.874 -3.457,1.874 l -4.116,0 c -0.158,-1.161 -0.211,-3.298 -0.211,-4.855 l 0,-2.665 4.618,0 c 1.478,0 1.979,0.343 2.269,1.346 l 0.475,0 c -0.027,-0.555 -0.079,-1.161 -0.079,-1.768 0,-0.607 0.052,-1.214 0.079,-1.794 l -0.475,0 c -0.29,0.976 -0.791,1.319 -2.269,1.319 l -4.618,0 0,-7.995 5.489,0 c 1.688,0 2.427,0.765 2.902,1.821 l 0.422,-0.079 -0.396,-2.876 c -0.924,0.185 -1.82,0.237 -3.509,0.237 l -8.496,0 0,0.37 c 1.082,0.053 1.478,0.422 1.478,1.583 l 0,7.335 c 0,8.179 -0.106,8.39 -1.478,8.443 l 0,0.475 10.502,0 c 0.579,0 0.738,0.158 0.87,0.422 l 0.475,0 0,-3.193"></path><path id="path3425" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 117.348,159.298 c 0,2.375 -0.105,4.776 -0.105,6.676 0,1.372 -0.29,2.057 -1.451,2.057 l 0,0.475 c 1.266,0 3.535,0.159 4.934,0.159 3.641,0 7.045,-1.372 7.045,-5.462 0,-2.454 -2.19,-4.195 -4.46,-4.776 l 5.831,-6.78 c 0.554,-0.66 1.029,-0.871 1.663,-1.082 l 0,-0.475 c -0.686,0 -1.372,0.105 -2.058,0.105 -0.687,0 -1.372,-0.105 -2.058,-0.105 l 0,0.475 c 0.079,0.053 0.21,0.132 0.21,0.185 0,0.079 -0.105,0.29 -0.21,0.421 l -4.512,5.489 c -0.634,0.765 -1.451,1.372 -2.718,1.504 l 0,-6.016 c 0,-0.818 0.343,-1.583 1.24,-1.583 l 0,-0.475 c -0.659,0 -1.451,0.105 -2.348,0.105 -0.791,0 -1.583,-0.105 -2.243,-0.105 l 0,0.475 c 0.897,0 1.24,0.765 1.24,1.583 l 0,7.15 z m 2.111,-0.29 c 0.317,-0.053 0.739,-0.158 1.214,-0.158 2.902,0 4.802,1.741 4.802,4.406 0,2.585 -1.636,4.617 -4.644,4.617 -1.055,0 -1.267,-0.053 -1.267,-0.897 0,-1.214 -0.105,-2.639 -0.105,-3.773 l 0,-4.195"></path><path id="path3427" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 145.395,165.498 c -0.554,1.715 -2.454,2.48 -4.116,2.48 -2.137,0 -4.195,-1.107 -4.195,-3.508 0,-5.673 9.313,-3.167 9.313,-9.472 0,-3.431 -2.479,-5.225 -5.725,-5.225 -1.609,0 -3.245,0.29 -4.881,0.765 l -0.106,2.744 0.475,0 c 0.607,-1.873 2.718,-2.664 4.486,-2.664 2.085,0 3.905,1.029 3.905,3.35 0,5.594 -9.314,2.665 -9.314,9.472 0,3.826 3.008,5.383 6.464,5.383 1.372,0 2.692,-0.422 4.063,-0.369 l 0.106,-2.956 -0.475,0"></path><path id="path3429" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 156.819,168.031 c -1.028,0 -1.319,-0.765 -1.319,-1.583 l -0.132,-14.3 c 0,-0.818 0.423,-1.583 1.214,-1.583 l 0,-0.475 c -0.555,0 -1.346,0.105 -2.242,0.105 -0.792,0 -1.584,-0.105 -2.111,-0.105 l 0,0.475 c 0.738,0 1.161,0.765 1.161,1.583 l -0.132,14.3 c 0,0.818 -0.291,1.583 -1.319,1.583 l 0,0.475 c 0.817,0 1.609,-0.105 2.401,-0.105 0.896,0 1.687,0.105 2.479,0.105 l 0,-0.475"></path><path id="path3431" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 165.632,167.319 c -1.715,0 -2.296,-0.448 -2.771,-1.847 l -0.474,0 -0.106,3.351 0.132,0 c 0.422,-0.158 1.056,-0.317 1.557,-0.317 2.163,0 4.327,-0.105 6.491,-0.105 2.163,0 4.326,0.105 6.49,0.105 0.501,0 1.135,0.159 1.557,0.317 l 0.132,0 -0.106,-3.351 -0.475,0 c -0.475,1.399 -1.055,1.847 -2.77,1.847 l -3.694,0 -0.079,-15.171 c 0,-0.977 0.396,-1.24 1.767,-1.583 l 0,-0.475 c -0.949,0 -1.899,0.105 -2.849,0.105 -0.95,0 -1.9,-0.105 -2.85,-0.105 l 0,0.475 c 1.451,0.343 1.82,0.606 1.82,1.583 l -0.078,15.171 -3.694,0"></path><path id="path3433" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 190.248,158.586 -4.67,7.546 c -0.58,0.976 -1.293,1.583 -2.057,1.899 l 0,0.475 c 0.817,0 1.635,-0.105 2.454,-0.105 0.818,0 1.635,0.105 2.453,0.105 l 0,-0.475 c -0.607,-0.132 -0.949,-0.369 -0.949,-0.844 0,-0.158 0.105,-0.554 0.342,-0.976 l 3.826,-6.438 3.931,6.28 c 0.422,0.633 0.607,1.108 0.607,1.293 0,0.527 -0.449,0.632 -0.87,0.685 l 0,0.475 c 0.685,0 1.372,-0.105 2.058,-0.105 0.686,0 1.371,0.105 2.058,0.105 l 0,-0.475 c -1.32,-0.474 -3.589,-3.429 -4.591,-5.012 l -2.481,-3.932 0,-6.939 c 0,-0.818 0.344,-1.583 1.293,-1.583 l 0,-0.475 c -0.712,0 -1.504,0.105 -2.4,0.105 -0.792,0 -1.584,-0.105 -2.35,-0.105 l 0,0.475 c 1.004,0 1.346,0.765 1.346,1.583 l 0,6.438"></path><path id="path3435" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 222.147,168.823 c 5.489,0 9.525,-4.116 9.525,-9.525 0,-5.409 -4.036,-9.525 -9.525,-9.525 -5.487,0 -9.524,4.116 -9.524,9.525 0,5.409 4.037,9.525 9.524,9.525 z m 0,-18.205 c 4.935,0 7.019,3.852 7.019,8.68 0,4.828 -2.084,8.68 -7.019,8.68 -4.933,0 -7.018,-3.852 -7.018,-8.68 0,-4.828 2.085,-8.68 7.018,-8.68"></path><path id="path3437" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 241.039,159.984 3.51,0 c 1.476,0 1.978,0.343 2.267,1.451 l 0.477,0 c -0.027,-0.66 -0.08,-1.266 -0.08,-1.873 0,-0.607 0.053,-1.214 0.133,-1.9 l -0.477,0 c -0.342,1.082 -0.844,1.425 -2.32,1.425 l -3.51,0 0,-6.965 c 0,-0.818 0.344,-1.584 1.24,-1.584 l 0,-0.475 c -0.66,0 -1.451,0.106 -2.347,0.106 -0.793,0 -1.584,-0.106 -2.244,-0.106 l 0,0.475 c 0.898,0 1.24,0.766 1.24,1.584 l 0,8.179 c 0,4.274 -0.289,6.411 -0.475,7.203 -0.053,0.237 -0.29,0.369 -1.24,0.422 l 0,0.475 6.992,0 c 1.531,0 2.692,0.105 3.588,0.105 l 0,-2.717 -0.475,0 c -0.105,1.055 -0.554,1.715 -1.9,1.715 l -4.379,0 0,-7.52"></path><path id="path3439" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 266.527,167.319 c -1.715,0 -2.296,-0.448 -2.771,-1.847 l -0.475,0 -0.105,3.351 0.133,0 c 0.421,-0.158 1.054,-0.317 1.556,-0.317 2.162,0 4.326,-0.105 6.491,-0.105 2.164,0 4.326,0.105 6.49,0.105 0.502,0 1.134,0.159 1.556,0.317 l 0.133,0 -0.105,-3.351 -0.477,0 c -0.475,1.399 -1.055,1.847 -2.769,1.847 l -3.694,0 -0.08,-15.171 c 0,-0.977 0.397,-1.24 1.768,-1.583 l 0,-0.475 c -0.95,0 -1.899,0.105 -2.85,0.105 -0.949,0 -1.898,-0.105 -2.85,-0.105 l 0,0.475 c 1.452,0.343 1.821,0.606 1.821,1.583 l -0.078,15.171 -3.694,0"></path><path id="path3441" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 288.215,159.166 0,-7.018 c 0,-0.818 0.344,-1.583 0.976,-1.583 l 0,-0.475 c -0.396,0 -1.187,0.105 -2.084,0.105 -0.792,0 -1.584,-0.105 -1.98,-0.105 l 0,0.475 c 0.635,0 1.029,0.765 1.029,1.583 l 0,9.657 c -0.025,6.015 -0.183,6.332 -1.293,6.226 l 0,0.475 c 0.66,0 1.452,-0.105 2.244,-0.105 0.897,0 1.688,0.105 2.348,0.105 l 0,-0.475 c -0.896,0 -1.187,-0.765 -1.187,-1.583 l -0.053,-6.2 12.111,0 -0.053,6.2 c 0,0.818 -0.291,1.583 -1.187,1.583 l 0,0.475 c 0.658,0 1.451,-0.105 2.348,-0.105 0.791,0 1.582,0.105 2.242,0.105 l 0,-0.475 c -1.108,0.106 -1.266,-0.211 -1.293,-6.226 l 0,-9.657 c 0,-0.818 0.396,-1.583 1.029,-1.583 l 0,-0.475 c -0.396,0 -1.187,0.105 -1.978,0.105 -0.897,0 -1.69,-0.105 -2.084,-0.105 l 0,0.475 c 0.632,0 0.976,0.765 0.976,1.583 l 0,7.018 -12.111,0"></path><path id="path3443" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 321.328,165.63 -0.476,0 c -0.264,1.188 -1.239,1.874 -3.455,1.874 l -4.118,0 c -0.158,-1.161 -0.211,-3.298 -0.211,-4.855 l 0,-2.665 4.617,0 c 1.479,0 1.981,0.343 2.27,1.346 l 0.475,0 c -0.026,-0.555 -0.078,-1.161 -0.078,-1.768 0,-0.607 0.052,-1.214 0.078,-1.794 l -0.475,0 c -0.289,0.976 -0.791,1.319 -2.27,1.319 l -4.617,0 0,-7.995 5.489,0 c 1.689,0 2.427,0.765 2.902,1.821 l 0.422,-0.079 -0.395,-2.876 c -0.924,0.185 -1.82,0.237 -3.509,0.237 l -8.496,0 0,0.37 c 1.081,0.053 1.478,0.422 1.478,1.583 l 0,7.335 c 0,8.179 -0.106,8.39 -1.478,8.443 l 0,0.475 10.501,0 c 0.58,0 0.739,0.158 0.87,0.422 l 0.476,0 0,-3.193"></path><path id="path3519" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 22.685,134.168 c 0,2.667 -1.118,5.161 -4.215,5.161 l 0,1.547 c 3.269,0 6.537,-0.343 9.805,-0.343 3.269,0 6.536,0.343 9.805,0.344 9.117,0 19.266,-4.645 19.266,-17.287 0,-10.924 -9.891,-16.945 -19.696,-16.945 -2.924,0 -5.505,0.345 -7.913,0.517 l -0.172,-19.61 c 0,-2.666 1.119,-5.16 4.043,-5.16 l -10e-4,-1.548 c -2.149,0 -4.73,0.344 -7.654,0.344 -2.58,0 -5.161,-0.344 -7.31,-0.344 l 0,1.548 c 2.924,0 4.042,2.494 4.042,5.16 l 0,46.616 z m 7.052,-22.104 c 0,-1.806 0.516,-3.354 6.881,-3.354 10.149,0 13.245,6.881 13.245,15.052 0,7.654 -2.838,14.879 -14.277,14.879 -4.472,0 -5.505,-0.516 -5.505,-4.301 0,-1.806 -0.344,-5.762 -0.344,-10.922 l 0,-11.354"></path><path id="path3521" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 66.204,98.045 63.452,90.477 C 62.85,88.842 62.85,86.692 62.85,85.832 c 0,-1.548 1.548,-2.666 3.698,-3.44 l -0.001,-1.548 c -2.149,0 -4.386,0.344 -6.536,0.344 -2.236,0 -4.472,-0.344 -7.138,-0.344 l 0,1.548 c 4.3,1.376 4.902,3.44 6.45,7.224 l 20.814,52.293 1.462,0 18.664,-52.293 c 1.462,-4.128 2.666,-5.677 6.795,-7.224 l -0.001,-1.548 c -2.58,0 -5.161,0.344 -7.741,0.344 -2.58,0 -5.16,-0.344 -7.74,-0.344 l 0,1.548 c 1.118,0.774 3.01,1.892 3.01,2.923 0,1.377 -0.516,2.495 -0.946,3.7 l -3.354,9.03 -24.082,0 z m 1.376,3.526 21.588,0 L 79.019,129.61 67.58,101.571"></path><path id="path3523" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 160.641,82.22 c -5.419,-1.548 -12.731,-2.409 -18.321,-2.409 -20.556,0 -34.231,12.557 -34.231,31.049 0,18.492 13.675,31.049 34.231,31.049 7.741,0 15.912,-3.096 17.632,-3.096 0.344,0 0.775,0.344 1.204,0.43 l 0.946,-9.203 -1.547,0 c -3.011,6.623 -11.783,9.117 -18.235,9.117 -15.395,0 -26.06,-10.149 -26.06,-28.297 0,-12.987 11.697,-28.296 26.06,-28.296 10.235,0 16.084,2.58 20.212,8.945 l 1.118,-0.603 -3.009,-8.686"></path><path id="path3525" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 188.247,139.329 c -3.354,0 -4.3,-2.494 -4.3,-5.161 l -0.43,-46.616 c 0,-2.666 1.376,-5.16 3.956,-5.16 l 0,-1.548 c -1.806,0 -4.387,0.344 -7.311,0.344 -2.58,0 -5.16,-0.344 -6.881,-0.344 l 0,1.548 c 2.409,0 3.785,2.494 3.785,5.16 l -0.429,46.616 c 0,2.667 -0.947,5.161 -4.301,5.161 l 0,1.547 c 2.666,0 5.246,-0.343 7.826,-0.343 2.924,0 5.505,0.343 8.085,0.344 l 0,-1.548"></path><path id="path3527" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 210.866,113.097 11.44,0 c 4.816,0 6.45,1.118 7.396,4.73 l 1.548,0 c -0.086,-2.15 -0.258,-4.129 -0.258,-6.106 0,-1.979 0.172,-3.957 0.43,-6.194 l -1.548,0 c -1.118,3.527 -2.752,4.645 -7.568,4.645 l -11.44,0 0,-22.706 c 0,-2.666 1.118,-5.16 4.042,-5.16 l 0,-1.548 c -2.15,0 -4.73,0.344 -7.654,0.344 -2.58,0 -5.16,-0.344 -7.311,-0.344 l 0,1.548 c 2.924,0 4.043,2.494 4.043,5.16 l 0,26.663 c 0,13.933 -0.947,20.899 -1.548,23.48 -0.172,0.774 -0.946,1.204 -4.043,1.376 l 0,1.548 22.793,0 c 4.988,0 8.772,0.344 11.697,0.344 l 0,-8.859 -1.549,0 c -0.344,3.44 -1.806,5.591 -6.192,5.591 l -14.278,0 0,-24.512"></path><path id="path3529" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 258.945,139.329 c -3.355,0 -4.3,-2.494 -4.3,-5.161 l -0.43,-46.616 c 0,-2.666 1.375,-5.16 3.955,-5.16 l 0,-1.548 c -1.807,0 -4.387,0.344 -7.311,0.344 -2.58,0 -5.16,-0.344 -6.881,-0.344 l 0,1.548 c 2.409,0 3.786,2.494 3.786,5.16 l -0.43,46.616 c 0,2.667 -0.947,5.161 -4.301,5.161 l 0,1.547 c 2.666,0 5.246,-0.343 7.826,-0.343 2.924,0 5.504,0.343 8.086,0.344 l 0,-1.548"></path><path id="path3531" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 320.44,82.22 c -5.418,-1.548 -12.729,-2.409 -18.321,-2.409 -20.554,0 -34.23,12.557 -34.23,31.049 0,18.492 13.676,31.049 34.23,31.049 7.742,0 15.912,-3.096 17.633,-3.096 0.344,0 0.773,0.344 1.203,0.43 l 0.947,-9.203 -1.549,0 c -3.009,6.623 -11.783,9.117 -18.234,9.117 -15.394,0 -26.06,-10.149 -26.06,-28.297 0,-12.987 11.697,-28.296 26.06,-28.296 10.236,0 16.084,2.58 20.213,8.945 l 1.117,-0.603 -3.009,-8.686"></path></g></svg>
+            </a>
+            </div>
+        </div>
+                    
+
+        <div class="g-block size-75">
+             <div id="menu-6409-particle" class="g-content g-particle">            <nav class="g-main-nav" data-g-hover-expand="true"><ul class="g-toplevel">
+                                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-home g-standard  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Home</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-about g-parent g-standard g-menu-item-link-parent ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/about">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">About</span>
+            
+                    </span>
+                    <span class="g-menu-parent-indicator" data-g-menuparent=""></span>                            </a>
+                                                                            <ul class="g-dropdown g-dropdown-right g-fade g-inactive">
+            <li class="g-dropdown-column">
+                        <div class="g-grid">
+                        <div class="g-block size-100">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-about/lab  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/about/lab">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Laboratory</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-about/news  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/about/news">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">In the News</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+            </div>
+
+            </li>
+        </ul>
+            </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses g-parent g-standard g-menu-item-link-parent ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Courses</span>
+            
+                    </span>
+                    <span class="g-menu-parent-indicator" data-g-menuparent=""></span>                            </a>
+                                                                            <ul class="g-dropdown g-dropdown-right g-fade g-inactive">
+            <li class="g-dropdown-column">
+                        <div class="g-grid">
+                        <div class="g-block size-100">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses/comp175  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/comp175">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">COMP 175</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses/comp177  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/comp177">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">COMP 177</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses/comp178  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/comp178">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">COMP 178</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses/comp270  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/comp270">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">COMP 270</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses/comp272  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/comp272">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">COMP 272</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses/comp280  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/comp280">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">COMP 280</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses/cybr210  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/cybr210">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">CYBR 210</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses/cybr230  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/cybr230">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">CYBR 230</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-courses/cybr240  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/cybr240">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">CYBR 240</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+            </div>
+
+            </li>
+        </ul>
+            </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-resources g-parent g-standard g-menu-item-link-parent ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/resources">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Resources</span>
+            
+                    </span>
+                    <span class="g-menu-parent-indicator" data-g-menuparent=""></span>                            </a>
+                                                                            <ul class="g-dropdown g-dropdown-right g-fade g-inactive">
+            <li class="g-dropdown-column">
+                        <div class="g-grid">
+                        <div class="g-block size-100">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-resources/lab-network-design  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/resources/lab-network-design">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Lab Network Design</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-resources/lab-network-monitoring  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/resources/lab-network-monitoring">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Lab Network Monitoring</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-resources/security-and-privacy-news  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/resources/security-and-privacy-news">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Security and Privacy News</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-resources/pacific-vmware-licenses  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/resources/pacific-vmware-licenses">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Pacific VMware Licenses</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+            </div>
+
+            </li>
+        </ul>
+            </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-instructor g-standard  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/instructor">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Instructor</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-link g-menu-item-contact g-standard  ">
+                            <a class="g-menu-item-container" href="https://cyberlab.pacific.edu/contact">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Contact Us</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+        </ul>
+        
+    </nav>
+            </div>
+        </div>
+            </div>
+            </div>
+        
+    </section>
+                                    
+                                
+                
+    
+                <section id="g-container-main" class="g-wrapper">
+                <div class="g-container">                    <div class="g-grid">                        
+
+        <div class="g-block size-100">
+             <main id="g-mainbar">
+                                        <div class="g-grid">                        
+
+        <div class="g-block size-100">
+             <div id="custom-1095-particle" class="g-content g-particle">            <div id="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+            <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                                    <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="https://cyberlab.pacific.edu/courses" itemid="/courses">
+                    <span itemprop="name">Courses</span>
+                </a>
+                        <i class="fa fa-angle-right"></i>
+                <meta itemprop="position" content="1">
+    </span>
+        <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                                    <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="https://cyberlab.pacific.edu/courses/comp177" itemid="/courses/comp177">
+                    <span itemprop="name">COMP 177</span>
+                </a>
+                        <i class="fa fa-angle-right"></i>
+                <meta itemprop="position" content="2">
+    </span>
+        <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                                    <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="https://cyberlab.pacific.edu/courses/comp177/labs" itemid="/courses/comp177/labs">
+                    <span itemprop="name">Labs</span>
+                </a>
+                        <i class="fa fa-angle-right"></i>
+                <meta itemprop="position" content="3">
+    </span>
+        <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                                    <span itemscope="" itemtype="http://schema.org/Thing" itemprop="item" itemid="/courses/comp177/labs/lab-12-openflow">
+                    <span itemprop="name">Lab 12 - OpenFlow</span>
+                </span>
+                            <meta itemprop="position" content="4">
+    </span>
+    </div>
+            </div>
+        </div>
+            </div>
+                            <div class="g-grid">                        
+
+        <div class="g-block size-100">
+             <div class="g-content">
+                                                            <h1 id="lab12-openflow" class="headeranchor">Lab 12 - OpenFlow</h1>
+<p></p><nav class="table-of-contents toc" role="navigation">
+                <span class="toctitle">Table of contents:</span>
+      
+                                                                                                          
+  <ul>
+      
+        
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#softwaredefinednetworking" class="toclink" title="Software Defined Networking">Software Defined Networking</a></li>
+      
+        
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#designnetwork" class="toclink" title="Design Network">Design Network</a></li>
+      
+        
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#gns3configuration" class="toclink" title="GNS3 Configuration">GNS3 Configuration</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#installfaucetsdncontroller" class="toclink" title="Install Faucet SDN Controller">Install Faucet SDN Controller</a></li>
+      
+        
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#installopenvswitchovs" class="toclink" title="Install Open vSwitch (OVS)">Install Open vSwitch (OVS)</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#configurenetwork-stage1" class="toclink" title="Configure Network - Stage 1">Configure Network - Stage 1</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#configureopenvswitch" class="toclink" title="Configure Open vSwitch">Configure Open vSwitch</a></li>
+      
+        
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#configurefaucetsdncontroller" class="toclink" title="Configure Faucet SDN Controller">Configure Faucet SDN Controller</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#configurenetwork-stage2" class="toclink" title="Configure Network - Stage 2">Configure Network - Stage 2</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#configurefaucetsdncontroller-1" class="toclink" title="Configure Faucet SDN Controller">Configure Faucet SDN Controller</a></li>
+      
+        
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#verification" class="toclink" title="Verification">Verification</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#configurenetwork-stage3" class="toclink" title="Configure Network - Stage 3">Configure Network - Stage 3</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#configurefaucetsdncontroller-2" class="toclink" title="Configure Faucet SDN Controller">Configure Faucet SDN Controller</a></li>
+      
+        
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#verification-1" class="toclink" title="Verification">Verification</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#labsubmission" class="toclink" title="Lab Submission">Lab Submission</a></li>
+      
+    
+  </ul>
+</nav>
+
+In this lab, you'll configure a routed network that uses Software-Defined Networking (SDN) over OpenFlow Layer 3 switches.<p></p>
+<h2 id="softwaredefinednetworking" class="headeranchor">Software Defined Networking</h2>
+<p>What is SDN and OpenFlow?</p>
+<iframe width="669" height="480" src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/DKP54Ed9ovo.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<h2 id="designnetwork" class="headeranchor">Design Network</h2>
+<p>Your <em>final</em> network topology should match this design.<br>
+<a rel="lightbox" href="https://cyberlab.pacific.edu/user/pages/03.courses/02.comp177/labs/lab-12-openflow/network-12-stage-3.png"><img alt="Network Diagram" src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/7dd2a76801b90dd0898473c73b4001e8e0c82524-network-12-stage-3.png"></a><br>
+Lab 12 Network Diagram - Stage 3 <em>(Note: Subnet labels and dashed borders are for informational use only)</em></p>
+<p>References:</p>
+<ul>
+<li><a href="https://www.b-ehlers.de/blog/posts/2020-09-04-gns3-sdn-lab-faucet-openvswitch/">GNS3 - SDN Lab with Faucet controller and OpenvSwitch</a></li>
+<li><a href="https://docs.faucet.nz/en/latest/tutorials/first_time.html">Installing Faucet for the first time</a></li>
+<li><a href="https://docs.faucet.nz/en/latest/installation.html#installation-with-docker">Installing Faucet with Docker</a></li>
+<li><a href="https://docs.openvswitch.org/en/latest/faq/openflow/">Using OpenFlow FAQ</a></li>
+<li><a href="https://docs.openvswitch.org/en/latest/tutorials/faucet/">Open vSwitch Faucet Tutorial</a></li>
+</ul>
+<h2 id="gns3configuration" class="headeranchor">GNS3 Configuration</h2>
+<h3 id="installfaucetsdncontroller" class="headeranchor">Install Faucet SDN Controller</h3>
+<p><strong><a href="https://faucet.nz/">Faucet</a></strong> is an open-source controller for OpenFlow networks.  From the Faucet website:</p>
+<blockquote>
+<p>Faucet is a compact open source OpenFlow controller, which enables network operators to run their networks the same way they do server clusters. Faucet moves network control functions (like routing protocols, neighbor discovery, and switching algorithms) to vendor independent server-based software, versus traditional router or switch embedded firmware, where those functions are easy to manage, test, and extend with modern systems management best practices and tools. Faucet controls OpenFlow 1.3 hardware which delivers high forwarding performance.<br>
+<a href="https://faucet.nz/">https://faucet.nz/</a></p>
+</blockquote>
+<p>Faucet can be installed in several methods: using <code>pip3</code> (for Python), <code>apt</code> (from your Linux distribution package manager), or via Docker.  And we're in luck - GNS3 already supports the ability to run Dockerized-applications natively in the GNS3 VM that you already have configured.   We could have been running all kinds of arbitrary applications this semester, such as anything at <a href="https://hub.docker.com/">Docker Hub</a>.  </p>
+<p>Configure GNS3 to run Faucet as a Docker container, suitable for placement into a network diagram:</p>
+<ol>
+<li>In GNS3, go to the Preferences window</li>
+<li>Locate the Docker section in the panel window, and under it, the section labeled “Docker Containers". You should already see the <em>webterm</em> container that was previously created.</li>
+<li>Select “New” to create a new Docker template</li>
+<li>Select “Run this Docker container on the GNS3 VM"</li>
+<li>Select "New Image", and for the image name, enter <code>faucet/faucet:latest</code>. That specifies the most recent version of the  <a href="https://hub.docker.com/r/faucet/faucet">Faucet SDN Controller</a> that can be downloaded from Docker Hub.</li>
+<li>Enter a name for your container - “faucet” is a helpful and obvious name - and click Next</li>
+<li>Specify the number of network interface adaptors your container application should see.  "1" is sufficient.</li>
+<li>Specify the start command that should be run when the container starts:  <code>sh -c 'cd; faucet &amp; sleep 10; ash -i -l'</code></li>
+<li>Specify the console type. "Telnet" is sufficient.</li>
+<li>No environment variables are needed.</li>
+<li>Click Finish</li>
+<li>Your container template is now created, but there’s one more <strong>subtle but important</strong>  settings to change. Click "Edit" on the template you just created.  
+<ol>
+<li>Under the Advanced tab, enter the path <code>/root</code> in the category "Additional directories to make persistent that are not included in the image VOLUMES config"</li>
+</ol></li>
+<li>Select “Ok” to edit the Preferences panel entirely.</li>
+</ol>
+<p>When this container is added to a network diagram, GNS3 will download the <code>faucet</code> containerized application from Docker Hub and configure it according to your settings. </p>
+<h3 id="installopenvswitchovs" class="headeranchor">Install Open vSwitch (OVS)</h3>
+<p>In order for the Faucet SDN controller to have <em>something to control</em>, we need a new kind of network switch: A switch that supports the <strong>OpenFlow</strong> standard and allows its forwarding plane to be managed remotely over the network.  <strong><a href="https://www.openvswitch.org/">Open vSwitch</a></strong> is a virtual switch that supports this standard. </p>
+<p>GNS3 already has a <a href="https://hub.docker.com/r/gns3/openvswitch">Docker image for Open vSwitch</a> available, and you could install it following the Docker instructions above.  However, an even easier installation process is to download the the pre-packaged appliance, which will do the same installation process in fewer steps.</p>
+<ol>
+<li>Download the Open vSwitch appliance from <a href="https://www.gns3.com/marketplace/featured/open-vswitch">https://www.gns3.com/marketplace/featured/open-vswitch</a></li>
+<li>In GNS3, go to File-&gt;Import Appliance</li>
+<li>Find the "openvswitch.gns3a" file you just downloaded</li>
+<li>Select "Install the appliance on the GNS3 VM"</li>
+<li>Select "Finish"</li>
+</ol>
+<p>When this container is added to a network diagram, GNS3 will download the <code>gns3/openvswitch:latest</code> containerized application from Docker Hub and configure it according to your settings. </p>
+<h2 id="configurenetwork-stage1" class="headeranchor">Configure Network - Stage 1</h2>
+<p>The network for Lab 12 features an "out of band" controller architecture, where the SDN controller is <em>not</em> part of the network being managed. (OpenFlow also supports "in band" architectures, where the controller <em>is</em> part of the network being managed).</p>
+<p>For simplicity, wire up the network in three stages:</p>
+<ul>
+<li><strong>Stage 1</strong> - Wire up the <strong>Management Network</strong> - The <code>eth0</code> interfaces from the Open vSwitch devices, through the management switch, to the Faucet SDN controller</li>
+<li><strong>Stage 2</strong> - Wire up the <strong>Data Network</strong> for VLAN 100.  This broadcast domain connects the webterms and DHCPServer as-if they were connected to a single switch </li>
+<li><strong>Stage 3</strong> - Wire up the <strong>Data Network</strong> for VLAN 200, the Gateway router, and the NAT interface to the public Internet.</li>
+</ul>
+<p>Wire <strong>Stage 1</strong> now - the Management network.</p>
+<p><a rel="lightbox" href="https://cyberlab.pacific.edu/user/pages/03.courses/02.comp177/labs/lab-12-openflow/network-12-stage-1.png"><img alt="Network Diagram" src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/418652bbba1c6cd606c14f7891db503583c6bfc4-network-12-stage-1.png"></a><br>
+Lab 12 Network Diagram - Stage 1</p>
+<h3 id="configureopenvswitch" class="headeranchor">Configure Open vSwitch</h3>
+<p>The <em>Open vSwitch</em> devices are essentially Linux computers with multiple network adaptors.  (A commercial device might be hardware-accelerated, but this can also be done in software).   Each switch needs three configuration items set:</p>
+<ol>
+<li>The management interface <code>eth0</code> (connected to the management switch, and the Faucet controller) needs an IP address.</li>
+<li>The management interface <code>eth0</code> should not be a part of the software bridge <code>br0</code></li>
+<li>The software bridge <code>br0</code> (on the switch) should be controlled by the Faucet SDN controller.</li>
+</ol>
+<p>First, configure each OVS device with its own <strong>management IP address</strong> on the <code>eth0</code> interface.   Right-click on each device, choose "Configure" and then "Edit" under "Network Configuration".   Enter the following configuration:</p>
+<pre><code class="language-none"># Static config for eth0 - Management interface
+auto eth0
+iface eth0 inet static
+    address 172.20.1.1
+    netmask 255.255.255.0</code></pre>
+<p>Ensure that the three switches have management IP addresses as follows:</p>
+<ul>
+<li>OpenvSwitch-1: <code>172.20.1.1</code></li>
+<li>OpenvSwitch-2: <code>172.20.1.2</code></li>
+<li>OpenvSwitch-3: <code>172.20.1.3</code></li>
+</ul>
+<p>Once the network configuration for each Open vSwitch has been set, start each device and access its console. For each switch, configure the default <code>br0</code> bridge (which combines all of the physical network ports) so that it is managed by the Faucet SDN controller, and that the bridge excludes <code>eth0</code> (which is being used for management and thus is considered "out of band").</p>
+<pre><code class="language-none">$ ovs-vsctl set bridge br0 other-config:datapath-id=0000000000000001 \
+            -- set bridge br0 fail_mode=secure \
+            -- set-controller br0 tcp:172.20.1.254:6653 \
+            -- set controller br0 connection-mode=out-of-band \
+            -- --if-exists del-port eth0</code></pre>
+<div class="notices red">
+<p><strong>Note 1:</strong> Each switch should have a datapath-id that is a <strong>unique</strong> 16 digit hex number.  Setting an ID of ...0000<strong>1</strong>, ...0000<strong>2</strong>, ...0000<strong>3</strong> is sufficient. </p>
+</div>
+<div class="notices yellow">
+<p><strong>Note 2:</strong> These commands could all be done separately, but there is an advantage in giving all of the commands to <code>ovs-vsctl</code> to be accomplished in a <em>single transaction</em> to avoid the network being incompletely configured between transactions. </p>
+</div>
+<p>While on each switch, take a moment to inspect the current configuration. Show information on the <code>br0</code> bridge:</p>
+<pre><code class="language-bash hljs">$ ovs-ofctl show br0</code></pre>
+<p>On the <code>br0</code> bridge, observe two things:</p>
+<ol>
+<li>The <code>eth0</code> interface is not part of the bridge (because it has been specifically excluded)</li>
+<li>The OpenFlow port numbers do <strong>not</strong> match the interface numbers.  The <code>eth1</code> interfce is port 2, the <code>eth2</code> interface is port 3, etc..  <strong>Keep this in mind!</strong>  (The interfaces were numbered started at 0, but OpenFlow numbers ports starting with 1).</li>
+</ol>
+<p>Show information on the controller for the <code>br0</code> bridge:</p>
+<pre><code class="language-bash hljs">$ ovs-vsctl get-controller br0
+<span class="hljs-comment"># Should see:</span>
+<span class="hljs-comment"># tcp:172.20.1.254:6653</span></code></pre>
+<p>Show information on current flows tracked by the switch:</p>
+<pre><code class="language-bash hljs">$ ovs-ofctl dump-flows br0
+<span class="hljs-comment"># Should see:</span>
+<span class="hljs-comment"># NXST_FLOW reply (xid=0x4):</span>
+<span class="hljs-comment"># (No flows, because the controller is not yet active)</span></code></pre>
+<h3 id="configurefaucetsdncontroller" class="headeranchor">Configure Faucet SDN Controller</h3>
+<p>The <em>Faucet SDN Controller</em> is another Linux computer running a Python application. It should also be configured to be on the management network with the unique management IP address that was already specified in the switch configuration above. Right-click on the Faucet device, choose "Configure" and then "Edit" under "Network Configuration". </p>
+<pre><code class="language-none"># Static config for eth0 - Faucet SDN
+auto eth0
+iface eth0 inet static
+    address 172.20.1.254
+    netmask 255.255.255.0
+    # Faucet needs a dummy DNS nameserver,
+    # otherwise it will fail to start
+    up echo nameserver 0.0.0.0 &gt; /etc/resolv.conf</code></pre>
+<p>Once the network configuration for the Faucet controller has been set, start the device. </p>
+<p>Back on a switch, check to see if there is any sign of communication with the Faucet controller:</p>
+<div class="notices blue">
+<p><strong>Note:</strong> The DEMO configuration of the Faucet controller will only provide a configuration for the switches with IDs of <code>0x1</code> and <code>0x2</code>.   We'll fix that next by loading a full configuration, but in the meantime, the switch with ID <code>0x3</code> won't show as connected or have any flows.</p>
+</div>
+<pre><code class="language-bash hljs">$ ovs-vsctl list controller
+<span class="hljs-comment"># Example Output:  (Should see: is_connected: true  and state=ACTIVE)</span>
+<span class="hljs-comment"># _uuid               : 88f70f02-9921-47e4-bedf-9e135e336877</span>
+<span class="hljs-comment"># connection_mode     : out-of-band</span>
+<span class="hljs-comment"># controller_burst_limit: []</span>
+<span class="hljs-comment"># controller_rate_limit: []</span>
+<span class="hljs-comment"># enable_async_messages: []</span>
+<span class="hljs-comment"># external_ids        : {}</span>
+<span class="hljs-comment"># inactivity_probe    : []</span>
+<span class="hljs-comment"># is_connected        : true    **********************</span>
+<span class="hljs-comment"># local_gateway       : []</span>
+<span class="hljs-comment"># local_ip            : []</span>
+<span class="hljs-comment"># local_netmask       : []</span>
+<span class="hljs-comment"># max_backoff         : []</span>
+<span class="hljs-comment"># other_config        : {}</span>
+<span class="hljs-comment"># role                : other</span>
+<span class="hljs-comment"># status              : {sec_since_connect="726", state=ACTIVE} **********************</span>
+<span class="hljs-comment"># target              : "tcp:172.20.1.254:6653"   **********************</span>
+
+$ ovs-vsctl show
+<span class="hljs-comment"># Should see:   is_connected: true</span>
+<span class="hljs-comment"># under Bridge "br0" section</span>
+
+$ ovs-ofctl dump-flows br0
+<span class="hljs-comment"># Switch-1 and Switch-2 should see some flows </span>
+<span class="hljs-comment"># now from the default (DEMO) configuration</span>
+<span class="hljs-comment"># Switch-3 has no configuration out of the box.</span></code></pre>
+<h2 id="configurenetwork-stage2" class="headeranchor">Configure Network - Stage 2</h2>
+<p>Wire <strong>Stage 2</strong> of the network now - the VLAN 100 portion connecting the webterms and DHCPServer.</p>
+<p><a rel="lightbox" href="https://cyberlab.pacific.edu/user/pages/03.courses/02.comp177/labs/lab-12-openflow/network-12-stage-2.png"><img alt="Network Diagram" src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/afc0385f578eb6c285db5ab674ddea1051442924-network-12-stage-2.png"></a><br>
+Lab 12 Network Diagram - Stage 2</p>
+<p>Configure the webterms to obtain addresses via DHCP.</p>
+<p>Configure DHCPServer with the address <code>10.20.30.1</code>.  It should provide addresses to the subnet <code>10.20.30.0/24</code> using addresses in the range <code>10.20.30.2-10.20.30.253</code> with a default gateway of <code>10.20.30.254</code> and DNS servers of <code>8.8.8.8</code> and <code>8.8.4.4</code>.</p>
+<h3 id="configurefaucetsdncontroller-1" class="headeranchor">Configure Faucet SDN Controller</h3>
+<p>The goal of Stage 2 is for all the webterms and DHCPServer to function as-if they were connected to the same Layer-2 (Ethernet) switch and share the same broadcast domain as part of VLAN 100.   The Faucet SDN needs to be configured to make this happen.  Otherwise, out of the box, each Open vSwitch is independent.</p>
+<p>First, make a backup of the original configuration file.  This is always a good practice when learning a new system:</p>
+<pre><code class="language-bash hljs">$ cp /etc/faucet/faucet.yaml /etc/faucet/faucet.yaml.orig</code></pre>
+<p>Then, edit the Faucet network configuration to specify the desired datapath (<code>dp</code>).  This datapath is, in essence, a single virtual switch that happens to be comprised of multiple physical switches.  Each physical switch in the virtual datapath needs to specified, along with each OpenFlow port that is connected. Remember that the OpenFlow ports are numbered starting at 1, so the port number is one greater than what you see in GNS3.  For ports that connect two OpenFlow switches together, the <code>stack</code> option is used to specify what is at the opposite end of the cable (another datapath).  In this way, the entire network configuration is specified as a text file.</p>
+<pre><code class="language-bash hljs">$ vi /etc/faucet/faucet.yaml
+<span class="hljs-comment"># Enjoy vi!   You do know how to use this classic text editor, yes?   :-)</span>
+<span class="hljs-comment"># Tips: </span>
+<span class="hljs-comment">#   Pressing 'd' while in command mode will delete a line</span>
+<span class="hljs-comment">#   Pressing 'i' while in command mode will enter "Insert mode" (to edit)</span>
+<span class="hljs-comment">#   Pressing 'ESC' while in an editing mode will switch back to command mode</span>
+<span class="hljs-comment">#   Entering ':wq' while in command mode will write the modified file to disk and then quit</span></code></pre>
+<p>The desired contents of the YAML-formatted configuration file is:</p>
+<pre><code class="language-yaml hljs"><span class="hljs-attr">vlans:</span>
+    <span class="hljs-attr">tiger:</span>
+        <span class="hljs-attr">vid:</span> <span class="hljs-number">100</span>
+
+<span class="hljs-attr">dps:</span>
+    <span class="hljs-attr">openvswitch-1:</span>
+        <span class="hljs-attr">dp_id:</span> <span class="hljs-number">0x1</span>
+        <span class="hljs-attr">hardware:</span> <span class="hljs-string">"Open vSwitch"</span>
+        <span class="hljs-attr">stack:</span>
+            <span class="hljs-attr">priority:</span> <span class="hljs-number">1</span>
+        <span class="hljs-attr">interfaces:</span>
+            <span class="hljs-attr">2:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth1"</span>
+                <span class="hljs-attr">native_vlan:</span> <span class="hljs-string">tiger</span>
+            <span class="hljs-attr">14:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth13"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-1 - openvswitch-3"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-3</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">14</span>
+            <span class="hljs-attr">15:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth14"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-1 openvswitch-2"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-2</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">15</span>
+
+    <span class="hljs-attr">openvswitch-2:</span>
+        <span class="hljs-attr">dp_id:</span> <span class="hljs-number">0x2</span>
+        <span class="hljs-attr">hardware:</span> <span class="hljs-string">"Open vSwitch"</span>
+        <span class="hljs-attr">interfaces:</span>
+            <span class="hljs-attr">2:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth1"</span>
+                <span class="hljs-attr">native_vlan:</span> <span class="hljs-string">tiger</span>
+            <span class="hljs-attr">15:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth14"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-2 - openvswitch-1"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-1</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">15</span>
+            <span class="hljs-attr">16:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth15"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-2 - openvswitch-3"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-3</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">16</span>
+
+    <span class="hljs-attr">openvswitch-3:</span>
+        <span class="hljs-attr">dp_id:</span> <span class="hljs-number">0x3</span>
+        <span class="hljs-attr">hardware:</span> <span class="hljs-string">"Open vSwitch"</span>
+        <span class="hljs-attr">interfaces:</span>
+            <span class="hljs-attr">2:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth1"</span>
+                <span class="hljs-attr">native_vlan:</span> <span class="hljs-string">tiger</span>
+            <span class="hljs-attr">3:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth2"</span>
+                <span class="hljs-attr">native_vlan:</span> <span class="hljs-string">tiger</span>
+            <span class="hljs-attr">14:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth13"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-3 - openvswitch-1"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-1</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">14</span>
+            <span class="hljs-attr">16:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth15"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-3 - openvswitch-1"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-2</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">16</span></code></pre>
+<p><strong>Note:</strong> YAML files use <strong>spaces</strong> for indentation, not tabs</p>
+<p>Test that your configuration file is good. Success will show a JSON-formatted output of your configuration. Failure will show an error message:</p>
+<pre><code class="language-bash hljs">$ check_faucet_config /etc/faucet/faucet.yaml</code></pre>
+<p>Trigger Faucet to reload and use the new configuration.</p>
+<pre><code class="language-bash hljs">$ pkill -HUP ryu-manager</code></pre>
+<h3 id="verification" class="headeranchor">Verification</h3>
+<p>Start the webterm instances and verify that they have IP addresses and can ping each other, as if they were all connected to the same switch.</p>
+<div class="notices green">
+<ul>
+<li>Provide a <strong>screenshot</strong> of <code>DHCPServer</code> showing <code>ip dhcp-server lease print</code> with at least 3 current leases.</li>
+<li>Provide a <strong>screenshot</strong> of <code>webterm-1</code> successfully pinging <code>webterm-2</code> and <code>webterm-3</code>.</li>
+</ul>
+</div>
+<h2 id="configurenetwork-stage3" class="headeranchor">Configure Network - Stage 3</h2>
+<p>To complete the network, add in the final VLAN - VLAN 200, referred to with the label "Roar".   This VLAN containers one router - <code>Gateway</code> - that is used to access the Internet.</p>
+<p><a rel="lightbox" href="https://cyberlab.pacific.edu/user/pages/03.courses/02.comp177/labs/lab-12-openflow/network-12-stage-3.png"><img alt="Network Diagram" src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/7dd2a76801b90dd0898473c73b4001e8e0c82524-network-12-stage-3.png"></a><br>
+Lab 12 Network Diagram - Stage 3</p>
+<p>Add the <code>Gateway</code> router and configure it as follows:</p>
+<ul>
+<li>DHCP client active on the interface connected to the NAT</li>
+<li>IP Masquerading on the interface connected to the NAT</li>
+<li>Static IP address of <code>10.20.40.1</code> on the interface connected to the Open vSwitch.</li>
+<li>Static route so that the subnet <code>10.20.30.0/24</code> can be reached by the gateway <code>10.20.40.254</code></li>
+</ul>
+<p>Ensure that the Gateway router can <code>ping google.com</code> before continuing. </p>
+<h3 id="configurefaucetsdncontroller-2" class="headeranchor">Configure Faucet SDN Controller</h3>
+<p>Although you have wired in an additional VLAN, the existing SDN topology does not know that it exists, or how to reach it.  To integrate it into the existing network, three things need to be added to the Faucet configuration:</p>
+<ol>
+<li>The port connected to <code>Gateway</code> needs to be provisioned on VLAN 200 on <code>OpenvSwitch-3</code></li>
+<li>Virtual IPs (VIPs) need to be provisioned for both VLAN 100 and VLAN 200</li>
+<li>Routing needs to be enabled between VLAN 100 and VLAN 200</li>
+</ol>
+<p>In essence, Faucet will provide a <strong>virtual router</strong> - with the virtual IPs you specify - linking VLAN 100 and VLAN 200.  This will not appear on the network diagram, but will exist <em>in software</em> on the OVS devices.  This is why the Open vSwitches are referred to as "Layer 3" switches - they can do elements of Ethernet switching ("Layer 2") and IPv4/IPv6 Routing ("Layer 3") in a single network device. </p>
+<p>Update your Faucet configuration as follows.  After editing the file, be sure to test the Faucet configuration, and trigger the Faucet service to reload the config file.</p>
+<pre><code class="language-yaml hljs"><span class="hljs-attr">vlans:</span>
+    <span class="hljs-attr">tiger:</span>
+        <span class="hljs-attr">vid:</span> <span class="hljs-number">100</span>
+        <span class="hljs-attr">faucet_vips:</span> [<span class="hljs-string">"10.20.30.254/24"</span>]
+    <span class="hljs-attr">roar:</span>
+        <span class="hljs-attr">vid:</span> <span class="hljs-number">200</span>
+        <span class="hljs-attr">faucet_vips:</span> [<span class="hljs-string">"10.20.40.254/24"</span>]
+        <span class="hljs-attr">routes:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-attr">route:</span>
+                <span class="hljs-attr">ip_dst:</span> <span class="hljs-string">"0.0.0.0/0"</span>
+                <span class="hljs-attr">ip_gw:</span> <span class="hljs-string">"10.20.40.1"</span>
+
+<span class="hljs-attr">routers:</span>
+    <span class="hljs-attr">router-1:</span>
+        <span class="hljs-attr">vlans:</span> [<span class="hljs-string">tiger</span>, <span class="hljs-string">roar</span>]
+
+<span class="hljs-attr">dps:</span>
+    <span class="hljs-attr">openvswitch-1:</span>
+        <span class="hljs-attr">dp_id:</span> <span class="hljs-number">0x1</span>
+        <span class="hljs-attr">hardware:</span> <span class="hljs-string">"Open vSwitch"</span>
+        <span class="hljs-attr">stack:</span>
+            <span class="hljs-attr">priority:</span> <span class="hljs-number">1</span>
+        <span class="hljs-attr">interfaces:</span>
+            <span class="hljs-attr">2:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth1"</span>
+                <span class="hljs-attr">native_vlan:</span> <span class="hljs-string">tiger</span>
+            <span class="hljs-attr">14:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth13"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-1 - openvswitch-3"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-3</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">14</span>
+            <span class="hljs-attr">15:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth14"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-1 openvswitch-2"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-2</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">15</span>
+
+    <span class="hljs-attr">openvswitch-2:</span>
+        <span class="hljs-attr">dp_id:</span> <span class="hljs-number">0x2</span>
+        <span class="hljs-attr">hardware:</span> <span class="hljs-string">"Open vSwitch"</span>
+        <span class="hljs-attr">interfaces:</span>
+            <span class="hljs-attr">2:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth1"</span>
+                <span class="hljs-attr">native_vlan:</span> <span class="hljs-string">tiger</span>
+            <span class="hljs-attr">15:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth14"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-2 - openvswitch-1"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-1</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">15</span>
+            <span class="hljs-attr">16:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth15"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-2 - openvswitch-3"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-3</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">16</span>
+
+    <span class="hljs-attr">openvswitch-3:</span>
+        <span class="hljs-attr">dp_id:</span> <span class="hljs-number">0x3</span>
+        <span class="hljs-attr">hardware:</span> <span class="hljs-string">"Open vSwitch"</span>
+        <span class="hljs-attr">interfaces:</span>
+            <span class="hljs-attr">2:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth1"</span>
+                <span class="hljs-attr">native_vlan:</span> <span class="hljs-string">tiger</span>
+            <span class="hljs-attr">3:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth2"</span>
+                <span class="hljs-attr">native_vlan:</span> <span class="hljs-string">tiger</span>
+            <span class="hljs-attr">4:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth3"</span>
+                <span class="hljs-attr">native_vlan:</span> <span class="hljs-string">roar</span>
+            <span class="hljs-attr">14:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth13"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-3 - openvswitch-1"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-1</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">14</span>
+            <span class="hljs-attr">16:</span>
+                <span class="hljs-attr">name:</span> <span class="hljs-string">"eth15"</span>
+                <span class="hljs-attr">description:</span> <span class="hljs-string">"Link openvswitch-3 - openvswitch-1"</span>
+                <span class="hljs-attr">stack:</span>
+                    <span class="hljs-attr">dp:</span> <span class="hljs-string">openvswitch-2</span>
+                    <span class="hljs-attr">port:</span> <span class="hljs-number">16</span></code></pre>
+<p><strong>Note:</strong> YAML files use <strong>spaces</strong> for indentation, not tabs</p>
+<h3 id="verification-1" class="headeranchor">Verification</h3>
+<p>Start the webterm instances and verify that they have IP addresses and can ping each other, as if they were all connected to the same switch.</p>
+<div class="notices green">
+<ul>
+<li>Provide a <strong>screenshot</strong> of <code>webterm-1</code> successfully pinging <code>google.com</code>.</li>
+</ul>
+</div>
+<h2 id="labsubmission" class="headeranchor">Lab Submission</h2>
+<p>Submit the following items to the Lab 12 Canvas assignment:</p>
+<ul>
+<li>Provide a <strong>screenshot</strong> showing your GNS3 topology  </li>
+<li>Provide a <strong>screenshot</strong> of <code>DHCPServer</code> showing <code>ip dhcp-server lease print</code> with at least 3 current leases.</li>
+<li>Provide a <strong>screenshot</strong> of <code>webterm-1</code> successfully pinging <code>webterm-2</code> and <code>webterm-3</code>.</li>
+<li>Provide a <strong>screenshot</strong> of <code>webterm-1</code> successfully pinging <code>google.com</code>.</li>
+</ul>
+<p>When finished, press the Stop button and exit GNS3.   The GNS3 VM (in VMware) should halt and exit automatically. </p>
+<!--
+## Supplemental Instructions (BONUS!)
+Instead of running Faucet in a Docker container (where just the Faucet service is available), you can run Faucet **plus optional GUI monitoring packages** in a full virtual machine.
+Start with a Linux virtual machine and install Faucet, following the official [first-time installation instructions](https://docs.faucet.nz/en/latest/tutorials/first_time.html):
+```bash
+# Add the Faucet Repository
+$ sudo apt install curl gnupg apt-transport-https lsb-release
+$ echo "deb https://packagecloud.io/faucetsdn/faucet/$(lsb_release -si | awk '{print tolower($0)}')/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/faucet.list
+$ curl -L https://packagecloud.io/faucetsdn/faucet/gpgkey | sudo apt-key add -
+$ sudo apt update
+# Install Faucet and monitoring utilities
+$ sudo apt install faucet-all-in-one
+# Configure Prometheus to use a config file
+# that shipped with Faucet
+$ sudo nano /etc/default/prometheus
+# Set this command-line argument to pass to the server.
+# ARGS="--config.file=/etc/faucet/prometheus/prometheus.yml"
+# Restart Prometheus so change takes effect
+$ sudo systemctl restart prometheus
+# Make Grafana start on boot, and start it this time
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable grafana-server
+$ sudo systemctl start grafana-server
+# Load http://localhost:3000  in local web browser
+# Username and password are "admin" by default
+#
+# Select "Add your first data source" with the following options:
+#    Name:   Prometheus
+#    Type:   Prometheus
+#    URL:    http://localhost:9090
+#
+# Click the "+"-> "Import" button and import 3 dashboards:
+#    Copy and paste in the raw JSON configuration
+#    https://docs.faucet.nz/en/latest/_static/grafana-dashboards/faucet_instrumentation.json
+#    https://docs.faucet.nz/en/latest/_static/grafana-dashboards/faucet_inventory.json
+#    https://docs.faucet.nz/en/latest/_static/grafana-dashboards/faucet_port_statistics.json
+#
+# Provide the /etc/faucet/faucet.yaml configuration file for the network
+$ check_faucet_config /etc/faucet/faucet.yaml
+$ sudo systemctl reload faucet
+$ sudo systemctl restart gauge
+```
+Now that your virtual machine is configured, configure GNS3 so that the VM can be made available to the simulated network.
+1. In GNS3, go to the Preferences window
+2. Locate the VMware section in the panel window, and under it, the section labeled “VMware VMs".
+3. Select “New” to create a new VMware template
+4. Select “Run this VMware VM on my local computer"
+5. Select the VM you previously created from the list
+6. Click Finish
+7. Your template is now created, but there’s a **subtle but important**  setting to change. Click "Edit" on the template you just created.  
+   1. Under the Settings tab, change the "On Close" from "Power off the VM" (harsh!) to "Send the shutdown signal (ACPI)" (gentle!)
+8. Locate the VMware section in the panel window. Chose it, and select "Advanced Local Settings".
+9. For "Managed VMnet Interfaces", change it from `VMnet2-VMnet100` to just `VMnet2-VMnet3`.  Select "Configure"  
+10. Select “Ok” to edit the Preferences panel entirely.
+You can now drag your VM into the simulated network topology.  **Note: You'll need to manually (INSIDE THE VM) set the static IP to 172.20.1.254 to be consistent with the lab topology.**
+```bash
+$ ip addr
+$ sudo ip addr add 172.20.1.254/24 dev ens33
+```
+-->
+    
+            
+    </div>
+        </div>
+            </div>
+            
+    </main>
+        </div>
+            </div>
+    </div>
+        
+    </section>
+    
+                                                    
+                <footer id="g-footer">
+                <div class="g-container">                                <div class="g-grid">                        
+
+        <div class="g-block size-10">
+             <div id="logo-9571-particle" class="g-content g-particle">            <a href="https://cyberlab.pacific.edu/" target="_self" title="Pacific Cybersecurity" aria-label="Pacific Cybersecurity" rel="home" class="g-logo g-logo-helium">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+	<g>
+		<path d="M463.69,165.522c-4.132-0.125-7.598,3.07-7.751,7.197c-3.713,100.094-41.401,237.55-199.773,324.197
+			C153.053,440.506,88.907,356.4,65.496,246.917c-18.067-84.489-5.485-157.091-0.929-178.368
+			c129.736-6.891,175.645-35.945,191.599-53.185c15.953,17.238,61.864,46.293,191.599,53.185c1.869,8.726,5.13,26.331,7.029,50.205
+			c0.327,4.117,3.936,7.18,8.049,6.863c4.118-0.327,7.191-3.931,6.863-8.049c-2.016-25.353-5.54-43.987-7.462-52.838
+			c-1.344-6.194-6.704-10.751-13.037-11.085C317.861,46.76,277.796,17.109,266.667,4.68C264.004,1.706,260.175,0,256.166,0
+			c-4.01,0-7.838,1.706-10.501,4.68C234.535,17.109,194.47,46.76,63.124,53.646c-6.332,0.333-11.692,4.891-13.035,11.083
+			c-4.591,21.151-18.101,97.022,0.78,185.316c10.836,50.677,30.574,96.929,58.664,137.468
+			c34.315,49.523,81.374,90.825,139.871,122.754c2.118,1.156,4.44,1.735,6.763,1.734c2.323,0,4.646-0.578,6.763-1.734
+			c74.466-40.647,129.977-96.095,164.989-164.804c26.18-51.376,40.637-109.309,42.97-172.189
+			C471.041,169.146,467.819,165.676,463.69,165.522z"></path>
+	</g>
+</g>
+<g>
+	<g>
+		<path d="M330.182,205.013h-12.813V134.49c0-33.748-27.456-61.204-61.203-61.204s-61.203,27.457-61.203,61.204v70.523H182.15
+			c-11.741,0-21.295,9.552-21.295,21.295v37.464c0,4.131,3.349,7.48,7.48,7.48s7.48-3.348,7.48-7.48v-37.464
+			c0-3.493,2.843-6.336,6.336-6.336h20.293h22.234h62.98h22.234h20.293c3.493,0,6.336,2.843,6.336,6.336V357.1
+			c0,3.493-2.843,6.335-6.336,6.335H182.149c-3.493,0-6.336-2.842-6.336-6.335v-40.974c0.001-4.131-3.347-7.48-7.479-7.48
+			c-4.13,0-7.48,3.349-7.48,7.48v40.974c0,11.741,9.552,21.294,21.295,21.294h148.034c11.741,0,21.295-9.552,21.295-21.294V226.307
+			C351.477,214.565,341.924,205.013,330.182,205.013z M280.177,205.013h-0.001h-48.021v-71.715c0-13.24,10.771-24.011,24.011-24.011
+			s24.011,10.771,24.011,24.011V205.013z M302.41,205.013h-7.275v-71.715c0-21.488-17.481-38.97-38.97-38.97
+			c-21.488,0-38.97,17.482-38.97,38.97v71.715h-7.275V134.49c0-25.5,20.746-46.246,46.245-46.246s46.245,20.746,46.245,46.246
+			V205.013z"></path>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+            </a>
+            </div>
+        </div>
+                    
+
+        <div class="g-block size-30">
+             <div id="copyright-1736-particle" class="g-content g-particle">            <div class="g-copyright ">
+    ©
+            University of the Pacific
+        2016 -     2023
+    <br>3601 Pacific Avenue<br>Stockton, CA 95211</div>
+            </div>
+        </div>
+                    
+
+        <div class="g-block size-45">
+             <div id="horizontalmenu-9034-particle" class="g-content g-particle">            <ul class="g-horizontalmenu ">
+
+                    <li>
+                <a target="_parent" href="https://cyberlab.pacific.edu/about" title="About the Program">About the Program</a>
+            </li>
+        
+    </ul>
+            </div>
+        </div>
+                    
+
+        <div class="g-block size-15">
+             <div id="totop-8670-particle" class="g-content g-particle">            <div class="">
+    <div class="g-totop">
+        <a href="https://cyberlab.pacific.edu/courses/comp177/labs/lab-12-openflow#" id="g-totop" rel="nofollow" title="Back to top" aria-label="Back to top">
+            Back to top            <i class="fa fa-chevron-up fa-fw"></i>                    </a>
+    </div>
+</div>
+            </div>
+        </div>
+            </div>
+            </div>
+        
+    </footer>
+                                
+                        
+
+        </div>
+                    
+
+                <script src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/main.js.descarga"></script>
+<script src="./Lab 12 - OpenFlow _ Pacific Cybersecurity_files/simplesearch.js.descarga"></script>
+
+
+    
+
+        
+    
+
+</body></html>
