@@ -39,20 +39,12 @@ ovs-vsctl set bridge br0 other-config:datapath-id=0000000000000003 \
             -- set controller br0 connection-mode=out-of-band \
             -- --if-exists del-port eth0
 ovs-vsctl set Interface eth2 options:dhcp_relay=10.20.30.1
+ovs-vsctl set Open_vSwitch . other_config:dhcp-relay-options=server=10.20.30.1
 		
-
-ovs-vsctl set bridge br0 other-config:datapath-id=0000000000000004 \
-            -- set bridge br0 fail_mode=secure \
-            -- set-controller br0 tcp:172.20.1.254:6653 \
-            -- set controller br0 connection-mode=out-of-band \
-            -- --if-exists del-port eth0
-
 
 ovs-vsctl show
 
+
+
 ovs-vsctl get-controller br0
-
-
-
-
 
